@@ -5,7 +5,6 @@ import userRoutes from "./modules/user/user.route"
 import productRoutes from "./modules/product/product.route"
 import { userSchemas } from "./modules/user/user.schema"
 import { productSchemas } from "./modules/product/product.schema"
-import fastify from "fastify"
 
 const server = Fastify()
 
@@ -86,6 +85,13 @@ async function main() {
   // Register routes
   server.register(userRoutes, { prefix: 'api' })
   server.register(productRoutes, { prefix: 'api/products' })
+
+
+  server.register(require('@fastify/cors'), {
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  })
 
 
   try {

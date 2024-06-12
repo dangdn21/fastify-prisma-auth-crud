@@ -1,0 +1,13 @@
+.DS_Store
+node_modules
+public/bundle.*
+.idea
+npm-debug.log
+
+# yarn lock
+yarn.lock
+
+.idea
+.env*local
+.vscode
+.history

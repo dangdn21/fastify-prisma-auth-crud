@@ -25,7 +25,8 @@ export async function loginHandler(
   }>,
   rely: FastifyReply
 ) {
-  const body = request.body;
+  console.log('request body', request.body)
+  const body = JSON.parse(JSON.stringify(request.body));
 
   const user = await findUserByEmail(body.email);
 
